@@ -1,0 +1,268 @@
+|
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="developer" content="Amardeep kesharwani" />
+    <title>instagram lite AMP</title>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <link rel="canonical" href="" />
+    <!-- Setup -->
+    <script async custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"></script>
+    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden;
+            }
+
+            to {
+                visibility: visible;
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden;
+            }
+
+            to {
+                visibility: visible;
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden;
+            }
+
+            to {
+                visibility: visible;
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden;
+            }
+
+            to {
+                visibility: visible;
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden;
+            }
+
+            to {
+                visibility: visible;
+            }
+        }
+    </style>
+    <noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none;
+            }
+        </style>
+    </noscript>
+    <style amp-custom>
+        /*
+         app name : Instagram,
+         create by : amardeep kesharwani,
+         date : 2-july-2020
+         this is not hard work it is smart work 😎😎
+         ignore this error, because sololearn not support local storage && other browser features
+        */
+        body {
+            font-family: sans-serif;
+            font-size: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .app {
+            width: 100%;
+            max-width: 420px;
+            box-sizing: border-box;
+            margin: auto;
+        }
+
+        .nav,
+        .footer {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            width: 100%;
+            max-width: 420px;
+            height: 45px;
+            transform: translateX(-50%);
+            background: #fff;
+            border-bottom: 1px solid #dedede;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            box-sizing: border-box;
+            z-index: 9;
+        }
+
+        .footer {
+            top: auto;
+            bottom: 0;
+            border-bottom: none;
+            border-top: 1px solid #dedede;
+            padding: 0 20px;
+        }
+
+        .title img {
+            width: 120px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        span svg {
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+        }
+
+        .main {
+            margin: auto;
+            margin-top: 50px;
+            max-width: 420px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <nav class="nav">
+            <span class="camera">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-camera" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M15 12V6a1 1 0 0 0-1-1h-1.172a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 9.173 3H6.828a1 1 0 0 0-.707.293l-.828.828A3 3 0 0 1 3.172 5H2a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z" />
+                    <path fill-rule="evenodd"
+                        d="M8 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                    <path d="M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+                </svg>
+            </span>
+            <h1 class="title">
+                <img src="https://pngimg.com/uploads/instagram/instagram_PNG5.png" alt="Instagram" />
+            </h1>
+            <span class="msg">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cursor" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52 2.25 8.184z" />
+                </svg>
+            </span>
+        </nav>
+        <main class="main">
+            <amp-state id="links">
+                <script type="application/json">
+            {
+              "items": [
+                { "id": "CBXKl_HlZss" },
+                { "id": "CCG2gk5g40J" },
+                { "id": "BYYf3BwgAZ4" },
+                { "id": "B-ELg3xnwVP" },
+                { "id": "B-89YX4JWOh" },
+                { "id": "CAraZbYF5XQ" },
+                { "id": "CBRGraRA1ab" },
+                { "id": "CBlEcP7gtJy" },
+                { "id": "CCA9Ob_BRZ0" },
+                { "id": "CCGADQAAkBT" },
+                { "id": "B-mvkeIlQcP" },
+                { "id": "B2wYiZHB9_Y" },
+                { "id": "CBPzXO1g82I" },
+                { "id": "B7c79CnnBj6" },
+                { "id": "B2QnbGfH1pH" },
+                { "id": "CBsWCi_BWNy" },
+                { "id": "B-pt-FWBHXn" },
+                { "id": "CAkjleGjGHS" },
+                { "id": "CB0xb7Vhzdv" },
+                { "id": "Bsin2nigKVN" },
+                { "id": "B-H_FOvAhKu" },
+                { "id": "Bsg2zt3BfoB" },
+                { "id": "CB-NWcpgA_4" },
+                { "id": "CB5Qt3MgGHf" },
+                { "id": "CBrOdI2gZhV" },
+                { "id": "CBnodHwjzxc" },
+                { "id": "CB5p3y_g9wl" }
+              ]
+            }
+          </script>
+            </amp-state>
+            <amp-list layout="fixed-height" height="5000" src="amp-state:links" binding="no">
+                <template type="amp-mustache">
+                    <amp-instagram data-shortcode="{{id}}" width="420" height="450" layout="responsive">
+                    </amp-instagram>
+                </template>
+            </amp-list>
+        </main>
+        <footer class="footer">
+            <span class="home">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door-fill" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z" />
+                    <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                </svg>
+            </span>
+            <span class="search">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                    <path fill-rule="evenodd"
+                        d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                </svg>
+            </span>
+            <span class="upload">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-square" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z" />
+                    <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z" />
+                    <path fill-rule="evenodd"
+                        d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                </svg>
+            </span>
+            <span class="heart">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                </svg>
+            </span>
+            <span class="user">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                </svg>
+            </span>
+        </footer>
+    </div>
+</body>
+
+</html>
